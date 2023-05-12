@@ -1,0 +1,41 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: help path mail
+  steps:
+  - intent: start_point
+    entities:
+      - site: mail
+  - action: utter_mail
+
+# - story: help path linkedin
+#   steps:
+#   - intent: start_point
+#     entities:
+#       - site: linkedin
+#   - action: utter_linkedin
+#
+# - story: help path math
+#   steps:
+#   - intent: start_point
+#     entities:
+#       - site: math
+#   - action: utter_math
